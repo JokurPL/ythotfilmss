@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Gorące filmy na polskim YT:</h1>
+        {% for value in items %}
+             <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+                <img src="{{value['snippet']['thumbnails']['high']['url']}}">
+              <span class="card-title">{{ value['snippet']['title'] }}</span>
+            </div>
+            <div class="card-content">
+              <p>{{ value['snippet']['description']}}</p>
+            </div>
+            <div class="card-action blue">
+              <a class="white-text" href="https://www.youtube.com/watch?v={{value['id']}}">Obejrzyj film</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+    </div>
+
+{% endblock %}
